@@ -56,7 +56,7 @@ func loadConfig() *Config {
 	subPath := getEnv("SUB_PATH", "sub")         // 节点订阅token
 	name := getEnv("NAME", "Xhttp")              // 节点名称
 	port := getEnv("PORT", "3000")               // 监听端口
-	domain := getEnv("DOMAIN", "")               // 服务域名
+	domain := getEnv("DOMAIN", "www.abc123.com")               // 服务域名
 	xpath := getEnv("XPATH", uuid[:8])
 	
 	return &Config{
@@ -464,8 +464,6 @@ func getISPInfo() string {
 func handleRequest(w http.ResponseWriter, r *http.Request) {
 	// root path
 	if r.URL.Path == "/" {
-		w.Header().Set("Content-Type", "text/plain")
-		fmt.Fprint(w, "Hello, World\n")
 		return
 	}
 	
